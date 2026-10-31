@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Práctica de listening y escritura en inglés: números, la hora y Does he/she like...?">
+    <title>English Listening & Writing Master 🎧✍️</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Confeti (opcional: si no carga, el juego funciona igual) -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <h1>Listening &amp; Writing Master 🎧✍️</h1>
+            <p class="subtitle">¡Escucha, selecciona y ESCRIBE las estructuras completas!</p>
+        </header>
+
+        <!-- Marcador -->
+        <div id="game-stats" hidden>
+            <div class="scoreboard">
+                <div class="score-box good">
+                    <span>✅ Buenas:</span>
+                    <span class="score-badge-val" id="buenas-val">0</span>
+                </div>
+                <div class="score-box bad">
+                    <span>❌ Malas:</span>
+                    <span class="score-badge-val" id="malas-val">0</span>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- Pantalla 1: inicio -->
+        <section id="start-screen" class="screen active">
+            <div class="big-emoji">📝🎧</div>
+            <h2>Práctica completa de evaluación</h2>
+            <p class="intro">
+                Incluye números del 10 al 100, la hora y escritura de respuestas con la
+                estructura correcta (<em>Yes, he does / No, she doesn't</em>).
+            </p>
+            <button id="btn-start" class="btn-start" type="button">¡Comenzar! 🚀</button>
+        </section>
+
+        <!-- Pantalla 2: pregunta -->
+        <section id="question-screen" class="screen">
+            <span class="category-tag" id="category-tag">Categoría</span>
+            <div id="prompt-text" class="prompt">Pulsa el botón para escuchar:</div>
+
+            <button id="btn-audio" class="audio-btn" type="button">🔊 Escuchar audio</button>
+
+            <!-- Modo A: opción múltiple -->
+            <div class="options-grid" id="options-container"></div>
+
+            <!-- Modo B: escribir la oración -->
+            <div class="text-input-container" id="text-input-container" hidden>
+                <div class="structure-guide" id="structure-guide"></div>
+                <input type="text" id="user-sentence-input" class="input-box"
+                       placeholder="Escribe la respuesta completa aquí..."
+                       autocomplete="off" autocapitalize="off" spellcheck="false">
+                <button id="btn-submit" class="btn-submit" type="button">Enviar respuesta ✍️</button>
+            </div>
+
+            <div class="feedback-message" id="feedback" aria-live="polite"></div>
+        </section>
+
+        <!-- Pantalla 3: resultados -->
+        <section id="result-screen" class="screen">
+            <div class="trophy-icon">🏆</div>
+            <h2>¡Evaluación finalizada! 🎉</h2>
+            <p class="intro">Completaste los módulos de escucha y escritura.</p>
+
+            <div class="scoreboard final">
+                <div class="score-box good">
+                    <span>✅ Correctas:</span>
+                    <span class="score-badge-val" id="final-buenas">0</span>
+                </div>
+                <div class="score-box bad">
+                    <span>❌ Errores:</span>
+                    <span class="score-badge-val" id="final-malas">0</span>
+                </div>
+            </div>
+
+            <button id="btn-restart" class="btn-restart" type="button">¡Repetir práctica! 🔄</button>
+        </section>
+    </main>
+
+</body>
+</html>
